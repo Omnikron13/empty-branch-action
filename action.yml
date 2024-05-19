@@ -22,8 +22,13 @@ runs:
     - name: Existing branch behavior
       shell: bash
       run: |
+        # debug print; seeing what out status here is...
+        ls -R
+        git branch
+        git status
+
         echo "Checking if branch exists: ${{ inputs.branch }}"
-        if git branch | grep -q ${{ inputs.branch }}; then
+        if git branch | grep ${{ inputs.branch }}; then
           echo "Branch '${{ inputs.branch }}' already exists..."
           case ${{ inputs.if-exists }} in
             fail)
