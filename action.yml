@@ -28,22 +28,22 @@ runs:
           case ${{ inputs.if-exists }} in
             fail)
               echo "Instructed to fail."
-              echo "created: false" >> $GITHUB_ENV
+              echo "created=false" >> $GITHUB_OUTPUT
               exit 1
               ;;
             skip)
               echo "Instructed to skip"
-              echo "created: false" >> $GITHUB_ENV
+              echo "created=false" >> $GITHUB_OUTPUT
               ;;
             checkout)
               echo "Checking out instead..."
               git checkout ${{ inputs.branch }}
-              echo "created: true" >> $GITHUB_ENV
+              echo "created=true" >> $GITHUB_OUTPUT
               ;;
             wipe)
               echo "Ordered to nuke branch!"
               echo " --- NOT YET IMPLEMENTED ---"
-              echo "created: false" >> $GITHUB_ENV
+              echo "created=false" >> $GITHUB_OUTPUT
               exit 1
               ;;
           esac
@@ -56,6 +56,6 @@ runs:
         echo "Branch doesn't exist..."
         echo "Creating empty branch: ${{ inputs.branch }}"
         git switch --orphan ${{ inputs.branch }}
-        echo "created: true" >> $GITHUB_ENV
+        echo "created=true" >> $GITHUB_OUTPUT
         exit 0
 ...
