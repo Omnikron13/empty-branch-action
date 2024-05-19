@@ -1,0 +1,21 @@
+---
+name: Empty Branch
+description: Creates an empty branch
+inputs:
+  branch:
+    description: Branch name
+    required: true
+    default: data
+  fail-if-exists:
+    description: Fail if branch already exists
+    default: false
+  force-empty:
+    description: Overwrite existing branch, ensuring it is truly empty
+    default: false
+outputs:
+  branch:
+    description: Branch name
+runs:
+  using: node20
+  main: main.js
+...
