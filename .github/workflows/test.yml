@@ -5,6 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Try to make an empty branch
     steps:
+      #- name: checkout
+      - uses: actions/checkout@v4
+
+      - run: ls -R
+      
       - id: foo
         uses: omnikron13/empty-branch-action@v0.1.1
         with:
