@@ -6,7 +6,7 @@ jobs:
     name: Try to make an empty branch
     steps:
       - id: foo
-        uses: omnikron13/empty-branch-action@v0.1.0
+        uses: omnikron13/empty-branch-action@v0.1.1
         with:
           branch: test-empty-1
           
