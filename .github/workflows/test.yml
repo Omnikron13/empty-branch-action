@@ -1,0 +1,14 @@
+on: workflow_dispatch
+
+jobs:
+  make_empty:
+    runs-on: ubuntu-latest
+    name: Try to make an empty branch
+    steps:
+      - id: foo
+        uses: omnikron13/empty-branch-action@v0.1.0
+        with:
+          branch: test-empty-1
+          
+      - name: debug print
+        run: ls -R
